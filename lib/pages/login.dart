@@ -5,6 +5,7 @@ import 'package:connectivity/connectivity.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_cub/pages/gpsview.dart';
 import 'package:flutter_application_cub/pages/perfil.dart';
 import 'package:http/http.dart' as http;
 
@@ -247,7 +248,7 @@ class _Login2PageState extends State<Login2Page> {
 
   Future<void> login() async {
     if (passController.text.isNotEmpty && emailController.text.isNotEmpty) {
-      String url = "http://swservice.uatf.edu.bo/api/login";
+      String url = "https://swservice.uatf.edu.bo/api/login";
       SharedPreferences sharePreferences =
           await SharedPreferences.getInstance();
       var jsonResponse;
@@ -256,8 +257,8 @@ class _Login2PageState extends State<Login2Page> {
             'email': emailController.text,
             'password': passController.text
           }));
-      // obteniendo conexion con api
-
+      // obteniendo conexion con api jsonResponse = json.decode(response.body);
+      //print(json.decode(response.body));
       if (response.statusCode == 200) {
         jsonResponse = json.decode(response.body);
         nombre = jsonResponse['name'];
@@ -272,7 +273,8 @@ class _Login2PageState extends State<Login2Page> {
           await saveLogin();
           Navigator.pushNamed(
             context,
-            PersonalPage.id,
+            gpsview.id,
+            //PersonalPage.id,
             arguments: Respuesta(jsonResponse['name'], jsonResponse['token'],
                 jsonResponse['expires']),
           );

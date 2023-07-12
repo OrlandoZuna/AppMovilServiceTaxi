@@ -3,6 +3,7 @@ import 'package:flutter_application_cub/pages/Inicio.dart';
 import 'package:flutter_application_cub/pages/calendario.dart';
 import 'package:flutter_application_cub/pages/cards.dart';
 import 'package:flutter_application_cub/pages/contactos.dart';
+import 'package:flutter_application_cub/pages/gpsview.dart';
 import 'package:flutter_application_cub/pages/infoTv.dart';
 import 'package:flutter_application_cub/pages/login.dart';
 import 'package:flutter_application_cub/pages/manuDrawer.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.indigo,
         primaryColor: const Color.fromARGB(255, 136, 13, 13),
       ),
-      initialRoute: MenuPage.id,
+      initialRoute: gpsview.id,
+      //initialRoute: MenuPage.id,
       routes: {
         CardsPage.id: (context) => CardsPage(),
         Login2Page.id: (context) => Login2Page(),
@@ -41,6 +43,7 @@ class MyApp extends StatelessWidget {
         TutorialPage.id: (context) => const TutorialPage(),
         ContactosPage.id: (context) => ContactosPage(),
         QrPage.id: (context) => const QrPage(),
+        gpsview.id: (context)=> gpsview(),
       },
       home: const MyHomePage(title: 'Flutter Zuna Huaygua'),
     );
